@@ -3,21 +3,21 @@
 namespace App\Classes\Handlers;
 
 use App\Classes\Handler;
-use App\Classes\Modelos\Aviso;
+use App\Classes\Modelos\Noticia;
 
-class AvisoHandler extends Handler
+class NoticiaHandler extends Handler
 {
-
     public function save(array $request): array
     {
-        $aviso = new Aviso();
-        if ($request['tbl'] == $aviso->table()) {
+        $noticia = new Noticia();
 
-            $aviso->save($request);
+        if ($request['tbl'] == $noticia->table()) {
+
+            $noticia->save($request);
 
             return array(
                 'status' => 'success',
-                'message' => 'Aviso salvo com sucesso!'
+                'message' => 'Notícia salva com sucesso!'
             );
         }
 
@@ -26,17 +26,17 @@ class AvisoHandler extends Handler
 
     public function update(array $request): array
     {
-        $aviso = new Aviso();
-
+        $noticia = new Noticia();
+        
         // poderia conter validação de codigo masjá tem no index.
 
-        if ($request['tbl'] == $aviso->table()) {
+        if ($request['tbl'] == $noticia->table()) {
 
-            $aviso->update($request);
+            $noticia->update($request);
 
             return array(
                 'status' => 'success',
-                'message' => 'Aviso atualizado com sucesso!'
+                'message' => 'Notícia atualizada com sucesso!'
             );
         }
 

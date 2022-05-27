@@ -3,14 +3,17 @@
 namespace App\Classes\Handlers;
 
 use App\Classes\Handler;
+use App\Classes\Modelos\Email;
 
 class EmailHandler extends Handler
 {
     public function save(array $request): array
     {
-        if ($request['tbl'] == 'email') {
+        $email = new Email();
 
-            //Chama o método que salva o email
+        if ($request['tbl'] == $email->table()) {
+
+            $email->save($request);
 
             return array(
                 'status' => 'success',
@@ -23,9 +26,13 @@ class EmailHandler extends Handler
 
     public function update(array $request): array
     {
-        if ($request['tbl'] == 'email') {
+        $email = new Email();
 
-            //Salva o aviso
+        // poderia conter validação de codigo masjá tem no index.
+
+        if ($request['tbl'] == $email->table()) {
+
+            $email->save($request);
 
             return array(
                 'status' => 'success',

@@ -4,14 +4,14 @@ namespace App\Classes\Handlers;
 
 use App\Classes\Handler;
 
-class UnexpectedHandler extends Handler
+class InvalidoHandler extends Handler
 {
     public function __construct()
     {
         parent::__construct(null);
     }
 
-    public function save(string $request): array
+    public function save(array $request): array
     {
         return array(
             'status' => 'failure',
@@ -19,7 +19,7 @@ class UnexpectedHandler extends Handler
         );
     }
 
-    public function update(string $request): array
+    public function update(array $request): array
     {
         return array(
             'status' => 'failure',
